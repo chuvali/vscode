@@ -1,0 +1,115 @@
+@use "sass:color";
+@use "variables";
+@use "mixins";
+//tab
+.nav-tabs.fixed_top {
+	position:fixed!important;
+	top: 56px;
+  //left: 0;
+	z-index:999;
+    width: 74%;
+    box-shadow: 0px 0 20px 3px rgba(variables.$third, 0.2);
+}
+.nav-tabs.fixed_top .nav>li:first-child:before {
+	height:85%!important
+}
+.nav-tabs.fixed_top .nav>li>a {
+	padding:6px 0!important
+}
+.nav-tabs.fixed_top .nav>li:after {
+	height:85%!important
+}
+.nav-tabs.fixed_top .nav>li img {
+	display:none
+}
+ul.nav-tabs{
+    gap: 6px;
+    border-bottom: 0;
+    a.nav-link{
+        padding: 8px 20px;
+        color: variables.$white;
+        font-size: clamp(variables.$font-third - .4rem, 2.2vw, variables.$font-third);
+        font-weight: 500;
+        background-color: variables.$primary;
+    }
+    li.tabs_btn.active a{
+        color: variables.$primary;
+        background-color: variables.$white;
+    }
+    &.fixed_top{background-color: variables.$white;}
+}
+.tab-content{ 
+    padding: 6%;
+    background-color: variables.$white;
+}
+
+//1330
+@media screen and (max-width: variables.$breakpoint-nav) {
+  .nav-tabs.fixed_top { 
+        top: 130px;
+        left: 0;
+        width: 100%;
+    }
+}
+
+//992px   M版斷點
+@media screen and (max-width: variables.$breakpoint-nav) {
+  .nav-tabs.fixed_top { 
+        top: 55px;
+    }
+    ul.nav-tabs a.nav-link { padding: 8px; }
+}
+
+//.tab
+
+
+//scroll table
+.table_scroll {
+    width: 100%;
+    overflow-x: auto;
+  }
+      .td_stymain{
+    min-width: 1000px;
+    width: 100%;
+    text-align: center;
+    border: 1px solid #cad5eb;
+    border-collapse: collapse;
+      }
+      .td_stymain th{
+          padding: 8px; 
+          color: #fff;
+          background: #7b91b4;
+    font-weight: 400;
+    text-align: center;
+    padding: 14px 10px 14px 10px;
+    line-height: 140%;
+    border-right: 1px solid #cad5eb;
+      }
+      .td_stymain td{
+          padding: 8px; 
+    line-height: 140%;
+    border-right: 1px solid #cad5eb;
+      }
+  .td_stymain tr:nth-child(2n+2) {
+    background: #f5f5f5;
+  }
+
+.datatable {
+  border-collapse: collapse;
+}
+.datatable {
+  //width: 100%;
+  text-align: center;
+  border: 1px solid #cad5eb;
+}
+.datatable th {color:variables.$white; background: #7b91b4; font-weight: 400; text-align:center; padding: 14px 10px 14px 10px; line-height: 140%;}
+.datatable td {color: #333333; padding: 11px 10px; line-height: 140%;}
+.table_scroll {overflow-x: auto;}
+.table_scroll > table {min-width: 1000px;}
+.datatable th, .datatable td {
+  border-right: 1px solid #cad5eb;
+}
+.datatable tr:nth-child(2n+2) {
+  background: #f5f5f5;
+}
+//.scroll table

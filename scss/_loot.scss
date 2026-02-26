@@ -1,0 +1,39 @@
+@use "sass:color";
+@use "variables";
+@use "mixins";
+//loot_left
+.loot_wp{
+    .list_wp.rewards .list_obj{
+        opacity: 0;
+        height: 0;
+        padding: 0 8px;
+        transform: scaleY(0);
+        transform-origin: top center;
+        animation: FadOutGlow 1.5s linear;
+        .clipcon{
+            text-fill-color: transparent;
+            -webkit-text-fill-color: transparent;
+            animation-iteration-count: infinite;
+            background: #fff gradient(linear, 100% 0, 0 0, from(#fff), color-stop(.5, #8f8f8f), to(#fff));
+            background: #fff -webkit-gradient(linear, 100% 0, 0 0, from(#fff), color-stop(.5, #8f8f8f), to(#fff));
+            -webkit-background-clip: text;
+            background-clip: text;
+            background-repeat: no-repeat;
+            background-size: 50% 200%;
+            animation: FadOutGlowTxt 2s linear;
+        }
+    }
+}
+.loot_wp{
+    left: 3%;
+}
+
+//992px
+@media screen and (max-width: variables.$breakpoint-pad-lg) {
+
+}// ./992px
+
+//460px
+@media screen and (max-width: variables.$breakpoint-mobile){
+
+}// ./460px

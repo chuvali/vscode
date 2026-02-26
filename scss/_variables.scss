@@ -1,0 +1,158 @@
+// Color system HSB
+$white:      #fff !default;
+$gray-98:    #fafafa !default;
+$gray-95:    #f2f2f2 !default;
+$gray-93:    #eee !default;
+$gray-87:    #ddd !default;
+$gray-80:    #ccc !default;
+$gray-73:    #bbb !default;
+$gray-67:    #aaa !default;
+$gray-60:    #999 !default;
+$gray-50:    #808080 !default;
+$gray-40:    #666 !default;
+$gray-33:    #555 !default;
+$gray-20:    #333 !default;
+$black:      #000 !default;
+
+$blue: #3e6db5 !default;
+$blue_deep: #0f3967 !default;
+$diya:#7157BD;
+$diya01:#7976D8;
+$diya02:#C3ADEA;
+$purple:  #6f42c1 !default;
+$third_basic:  #4C5264 !default;
+$pink:    #ff6a6e !default;
+$red:     #FF2424 !default;
+$orange:  #fd7e14 !default;
+$yellow:  #FFC020 !default;
+$yellow_light:  #FFF849 !default;
+$green:   #008971 !default;
+$teal:    #20c997 !default;
+$cyan:    #71FDFF !default;
+$gold:    #cab268 !default;
+
+
+//theme-colors
+$primary:       $diya !default;
+$secondary:     $cyan !default;
+$third:         #FFC020;
+$stress:        $red !default;
+$success:       $green !default;
+$info:          $cyan !default;
+$warning:       $orange !default;
+$danger:        $red !default;
+$required:      $red !default;
+$nav-assist-color:  $gray-50 !default;
+$placeholder-color: $gray-67!default;
+$bg-gray:       #ededed !default;
+$advent: #FFC020;
+
+
+// Font size
+$font-size-11:  1.1rem !default;
+$font-size-13:  1.3rem !default;
+$font-size-16:  1.6rem !default;
+$font-size-18:  1.8rem !default;
+$font-size-20:  2rem !default;
+$font-size-24:  2.4rem !default;
+$font-size-32:  3.2rem !default;
+$font-size-36:  3.6rem !default;
+$font-size-44:  4.4rem !default;
+
+$font-primary:  $font-size-32 !default;
+$font-second:  2.4rem !default;
+$font-third:  2rem !default;
+$font-four:  1.8rem !default;
+$font-body:  $font-size-16 - .2rem !default;
+$font-list:  $font-size-18 !default;
+$font-note:  $font-size-13 !default;
+
+//Font weight
+$font-weight-normal:    normal !default;
+$font-weight-bold:      bold !default;
+$font-weight-900:       900 !default;
+$font-weight-600:       600 !default;
+$font-weight-400:       400 !default;
+$font-weight-100:       100 !default;
+
+// Font line-height 
+$line-height-0: 0 !default;
+$line-height-default: 1;
+$line-height-ss: 1.2 !default;
+$line-height-sm: 1.6 !default;
+$line-height-m: 2 !default;
+
+// Font family
+$font-family-Arial:     Microsoft JhengHei, Arial, Helvetica, 'Noto Sans TC', sans-serif;
+$font-family-ming:      "Times New Roman", Georgia,'Noto Serif TC', serif;
+$font-family-yen:       Arial, Helvetica, 'cwTeXYen', sans-serif;
+$font-family-song:      Arial, Helvetica, 'cwTeXfangSong', serif;
+
+// Font TXT decoration
+$text-decoration-non: none;
+$text-decoration-under: underline;
+$text-decoration-through: line-through;
+
+// Font TOffset
+$text-indent: -999em;
+
+// Size
+$breakpoint-pc-exxl:    2560px !default;
+$breakpoint-pc-exl:    1925px !default;
+$breakpoint-pc-x:      1680px !default;
+$breakpoint-pc-m:      1440px !default;
+$breakpoint-pc-s:      1280px !default;
+$breakpoint-pad-lg:    992px !default;
+$breakpoint-pad:       768px !default;
+$breakpoint-mobile:    576px !default;
+$breakpoint-mobile-s:  320px !default;
+$breakpoint-nav:      992px !default;
+$percent-100: 100% !default;
+$percent-33:  33.333% !default;
+$percent-20:  20% !default;
+$percent-10:  10% !default;
+$primary-width:  1920px!default;
+$second-width:  1270px!default;
+
+$navigation-hight: 44px;
+$wap-padding-s: 2%;
+$wap-padding-m: 10%;
+$wap-padding-l: 20%;
+
+//lv
+$lv_primary: 999;  //tia lv
+$lv_dialog: 9;  //對話 lv
+
+//bg
+$bgimg_star01: url(images/bg_start_s.jpg) no-repeat;
+
+//gap
+$gap_ss: 8px;
+$gap_m: 20px;
+$gap_vwm: 4vw;
+
+//與視窗2側的距離
+$side_s: 3%;
+
+//radius
+$radius_s: 4px;
+$radius_sm: 8px;
+$radius_m: 12px;
+$radius_l: 60px;
+$radius_full: 100%;
+
+//position
+
+// display
+
+
+// animate
+$transition-03:    0.3s;
+$transition-05:    0.5s;
+$transition-10:    1s;
+
+//shadow
+$shadowMid: drop-shadow(0px 0px 2px rgba($black, 40%));
+$shadowMid_txt: 0px 0px 4px rgba($black, 60%);
+$shadowDeep: drop-shadow(0px 0px 2px rgba($black, 80%));
+$shadowTrans: drop-shadow(0px 0px 2px rgba($black, 40%));

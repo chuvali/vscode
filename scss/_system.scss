@@ -1,0 +1,524 @@
+@use "sass:color";
+@use "variables";
+@use "mixins";
+//memage_coat
+.wallet_wp{
+    display: flex;
+    img{margin-right: 8px;}
+}
+.memage_coat{
+    @include mixins.full_overlay;
+    z-index: variables.$lv_primary + 1;
+    padding: 12px;
+    //background: $bgimg_star01;
+    //background-size: cover;
+    text-shadow: variables.$shadowMid_txt;
+    //background-image: linear-gradient(to bottom, variables.$diya01 0%, variables.$diya02 60%);
+    button {
+        gap: 0;
+        color: variables.$white;
+    }
+    .top{ 
+        @include mixins.quest_lvst;
+        justify-content: space-between;
+        width: 100%;
+        img{margin-right: 8px;}
+    }
+    .tia_head_wp{
+        display: flex;
+        margin: 36px 0 24px;
+        .tia_head{
+            position: relative;
+            max-width: 160px;
+            width: 40%;
+            img{max-width: 160px;}
+        }
+        .btn_message{
+            position: absolute;
+            right: 0;
+            bottom: 12px;
+            width: 44px;
+            height: 44px;
+            line-height: variables.$line-height-0;
+            border-radius: 60px;
+            background-color: variables.$white;
+            img{filter: brightness(0.5);}
+        }
+        .notification{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 4px;
+            margin-left: 6%;
+            width: 54%;
+            .toast{ transform-origin: left;}
+            .toast.angle.topr::after {
+                top: unset;
+                right: unset;
+                left: -8px;
+                bottom: -8px;
+                transform: scaleX(-1) rotate(126deg);
+            }
+        }
+    }
+    .nav_sub,
+    .nav_main{
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin: 32px 0;
+    }
+}
+.memage_wp{
+    @include mixins.quest_lvst;
+    width: 100%;
+    max-height: 94vh;
+    overflow-y: auto;
+    .tit_second{
+        flex-direction: column;
+        gap: 8px;
+        margin: 36px 0 24px;
+        &.mt_0{margin-top: 8px;}
+    }
+    .ico_ml{max-width: 120px;}
+    .formactions{ justify-content: center;}
+    .item{ color: variables.$white; }
+    .btn_second_l{
+        width: 100%;
+        background-color: rgba(variables.$black, 20%);
+        border: 1px solid rgba(variables.$diya02, 40%);
+        border-radius: 60px;
+        &:hover{
+            color: variables.$white;
+            background-color: color.adjust(variables.$diya01, $saturation: -30%, $lightness: -30%);
+        }
+        &:focus,
+        &.current{
+            padding-left: 40px;
+            background: color.adjust(variables.$diya, $lightness: -60%) url(images/ico_tick.svg) no-repeat 12px center;
+            background-size: 24px;
+        }
+    }
+    .item_gp{
+        margin: 0 5%;
+    }
+    .btn_primary_lv2{
+        gap: 4px;
+        //box-shadow: 0px 0px 12px rgba(darken(variables.$diya, 30%), 0.3);
+        img{filter: variables.$shadowMid;}
+    }
+    &.guild{
+        overflow-y: unset;
+        color: variables.$white;
+        .title_logo{
+            position: absolute;
+            top: -40px;
+            left: 50%;
+            transform: translateX(-50%);
+            .ico_m {width: 64px;}
+        }
+        .title_primary{
+            margin-bottom: 40px;
+            padding-top: 60px;
+            
+        }
+        .list_wp{
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 4%;
+        }
+        .list{
+            max-width: 148px;
+            width: calc(100% / 2 - 12%);
+            padding: 32px;
+            font-size: variables.$font-four;
+            text-align: center;
+            border: 1px solid rgba(variables.$white, 0.3);
+            border-radius: 8px;
+            transition: .3s;
+            &:hover{
+                border: 1px solid rgba(variables.$cyan, 0.6);
+                background-color: rgba(variables.$black, 0.2);
+            }
+            .tit_second {margin: 24px 0 12px;}
+            .guild_rank{
+                font-size: 6.7rem;
+                font-weight: bold;
+                line-height: 1;
+            }
+            .level_wp{
+                display: flex;
+                align-items: flex-end;
+                justify-content: center;
+                gap: 6%;
+                .guild_rank{
+                    background: linear-gradient(to bottom, variables.$white, #CFD3FF);
+                    background-clip: text;
+                    -webkit-background-clip: text;
+                    color: transparent;
+                    text-shadow:none;
+                }
+                .gap{opacity: .5;}
+            }
+        }
+    }
+}
+
+//member
+.member_coat{
+    @include mixins.full_overlay;
+    z-index: variables.$lv_primary + 1;
+    padding: 12px;
+    overflow: hidden;
+    //background: $bgimg_star01;
+    //background: url(images/bg_start_s.jpg) no-repeat;
+    //background-size: cover;
+    //裝飾水晶
+    .planet01{
+        position: absolute;
+        top: 40px;
+        left: 10%;
+        opacity: .9;
+        z-index: variables.$lv_primary;
+        width: 60px;
+        filter: drop-shadow(0px 0px 2px #c0fffa) drop-shadow(0px 0px 24px #c0fffa80);
+        animation: updown 2s linear infinite;
+    }
+    .planet02{
+        position: absolute;
+        top: -190px;
+        left: -2%;
+        opacity: .5;
+        filter: blur(6px);
+        transform: rotate(45deg);
+    }
+    .planet03{
+        position: absolute;
+        bottom: 10%;
+        right: 30%;
+        width: 60px;
+        //transform: rotate(45deg);
+        animation: updown 2s linear infinite;
+        animation-delay: .5s;
+        animation-duration: 5s;
+    }
+    .planet04{
+        position: absolute;
+        bottom: -80px;
+        right: -10%;
+        opacity: .5;
+        width: 350px;
+        height: 200px;
+        filter: blur(8px);
+        transform: rotate(340deg);
+        img{width: 100%;}
+    }
+}
+.member_wp{
+    top: 50%;
+    transform: translateY(-50%);
+    max-width: 700px;
+    color: color.adjust(variables.$diya02, $lightness: 10%);
+    .panel_main{ 
+        min-height: 500px;
+        max-height: 60vh;
+        overflow-y: auto;
+    }
+    .tab{
+        gap: 20px;
+        padding-top: 10px;
+        margin-bottom: 32px;
+    }
+    .gap{
+        position: relative;
+        margin: variables.$gap_m + 4px 0;
+        text-align: center;
+    }
+    .deco_bgline{
+        &:before,
+        &:after{
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 40%;
+            height: 1px;
+            background: rgba(variables.$white, 30%);
+        }
+        &:before{left:10px;}
+        &:after{right:10px;}
+    }
+    .signinchoos{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-top: 80px;
+        margin-bottom: 32px;
+    }
+    &.login .article{
+        min-height: 120px;
+        color: variables.$white;
+        font-size: variables.$font-four - .2rem;
+        strong{color: variables.$yellow_light;}
+    }
+    .formactions{ padding: 24px 0 0;}
+    &.login {
+        .formactions{
+            justify-content: center;
+            margin-top: 12px;
+        }
+        .btn_primary_lv2{
+            max-width: 320px;
+            width: 100%;
+        }
+    }
+    .btn_second_l,
+    .btn_icotxt{
+        color: color.adjust(variables.$diya, $lightness: 35%);
+    }
+    .step_coat{
+        max-width: 477px;
+        margin: auto;
+        .step_wp{
+            @include mixins.flex-center;
+            gap: 8px;
+        }
+        .step{
+            flex: 1;
+            height: 2px;
+            background-color: rgba(variables.$white, 25%);
+            &.active{
+                background-color: color.adjust(variables.$diya, $lightness: 30%);
+            }
+        }
+    }
+    .cast_coat{
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1vw;
+        margin-top: variables.$gap_m;
+        .list{
+            margin-bottom: 12px;
+            width: calc(100% / 4 - 0.8vw);
+            padding: 0;
+            background-color: variables.$white;
+            border-radius: 12px;
+            overflow: hidden;
+            .img{
+                position: relative;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 100%;
+                font-size: variables.$font-four - .2rem;
+            }
+            &.add{
+                color: variables.$white;
+                background-color: rgba(variables.$black, 20%);
+                border: 1px solid rgba(variables.$diya02, 40%);
+                &:hover{
+                    color: color.adjust(variables.$diya, $saturation: 40%, $lightness: 35%);
+                }
+                .ico_ms{transform: scale(1.5);}
+                .img{
+                    flex-direction: column;
+                }
+            }
+            .select{
+                position: absolute;
+                right: 12px;
+                bottom: 12px;
+                width: 24px;
+                height: 24px;
+                border: 2px solid variables.$diya;
+                border-radius: 60px;
+            }
+            &.current{
+                .select{
+                    background-color: variables.$diya;
+                    &:before {
+                        content: "\e5ca";
+                        display: block;
+                        margin: 10px 0 0 0;
+                        font-family: "Material Symbols Outlined";
+                        font-style: normal;
+                        color: variables.$white;
+                        font-size: 2rem;
+                        line-height: variables.$line-height-0;
+                    }
+                }
+            }
+            .article{
+                margin-top: 8px;
+                line-height: variables.$line-height-ss;
+            }
+        }
+    }
+    .file_coat{
+        display: flex;
+        flex-direction: column;
+        .item_gp{margin-bottom: 0;}
+        .note.flex{ justify-content: flex-start;}
+        .input-error{
+            margin-bottom: variables.$gap_m + 4px;
+        }
+    }
+}
+body.member_wp{
+    margin-top: 0;
+    box-shadow: none;
+    background: transparent;
+    overflow: auto;
+}
+
+//2560px
+@media screen and (max-width: variables.$breakpoint-pc-exxl){
+
+}
+//./2560px
+
+//1280px
+@media screen and (max-width: variables.$breakpoint-pc-s){
+   .member_wp{
+        .panel_main { min-height: 350px;}
+    }
+}
+//./1280px
+
+//576px
+@media screen and (max-width: variables.$breakpoint-mobile){
+    .member_coat .planet03 {
+        right: 2%;
+    }
+    .member_wp{
+        .panel_main{
+            min-height: 500px;
+            max-height: unset;
+            padding-right: 0;
+        }
+        .registernote{ margin-top: 60px;}
+    }
+}// ./576px
+//576px 高度小於
+@media screen and (max-height: variables.$breakpoint-mobile){
+    .member_wp{
+        top: -40px;
+        transform: unset;
+        &.register,
+        &.login{
+            display: flex;
+            align-items: center;
+        }
+        .panel_top{
+            margin-top:0;
+            margin-left: -3vw;
+            margin-right: 3vw;
+        }
+        .panel_main {
+            min-height: 70vh;
+        }
+        .registernote {
+            margin-top: 30px;
+        }
+    }
+}// ./576px
+//576px
+@media screen and (min-width: variables.$breakpoint-mobile + 1px){
+    .registernote{ margin-top: 0px;}
+}
+
+//guardian
+.guardian_coat{
+    .modal-body{
+        overflow-y: unset;
+        //background-image: linear-gradient(170deg, rgba(0, 0, 0, .8) -10%, rgba(24, 25, 66, .8) 16%, rgba(48, 39, 70, 0.75) 70%, rgba(48, 39, 70, 0.4) 83%, rgba(255, 251, 177, 0.7) 120%);
+        background-image: linear-gradient(170deg, rgba(0, 0, 0, 0.4) -10%, rgba(24, 25, 66, 0.5) 16%, rgba(48, 39, 70, 0.45) 70%, rgba(48, 39, 70, 0.3) 83%, rgba(255, 251, 177, 0.7) 120%); 
+        background-image: linear-gradient(170deg, rgba(0, 0, 0, 0.4) -10%, rgba(24, 25, 66, 0.8) 16%, rgba(48, 39, 70, 0.8) 70%, rgba(48, 39, 70, 0.6) 83%, rgba(255, 251, 177, 0.7) 120%);
+        .head {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: rgba(variables.$white, 80%);
+            background-color: transparent;
+            img{
+                max-width: 120px;
+                margin-top: -60px;
+            }
+        }
+        .article{
+            padding: 24px 4vw 40px;
+            background: transparent;
+            .btn_primary_lv2{
+                font-size: variables.$font-four - .2rem;
+            }
+            .item{
+                max-width: 260px;
+                margin: 0 auto;
+                .btn{
+                    justify-content: flex-start;
+                    width: 100%;
+                    margin-bottom: 12px;
+                    img{
+                        filter: invert(1);
+                        margin-right: 8px;
+                    }
+                }
+            }
+        }
+    }
+    .btn_back{
+        position: absolute;
+        left: 12px;
+        top: 12px;
+    }
+    .strong{color: variables.$advent;}
+    .message{
+        margin-top: variables.$gap_m + 4px;
+    }
+    
+}
+//1280px
+@media screen and (max-width: variables.$breakpoint-pc-s){
+.modal-content.guardian_coat{
+   .article{
+        padding: 24px 8vw 40px;
+    }
+}
+}
+//./1280px
+
+//576px
+@media screen and (max-width: variables.$breakpoint-mobile){
+
+}// ./576px
+//576px 高度小於
+@media screen and (max-height: variables.$breakpoint-mobile){
+    .guardian_coat{
+        .modal-dialog{max-width:unset;}
+        .modal-body{
+            flex-direction: unset;
+            align-items: center;
+            .img {flex: 5;}
+            .head img {
+                margin-top: 0;
+            }
+        }
+        .article {
+            padding: 24px 4vw 40px;
+        }
+    }
+}//./576px 高度小於
+
+//npc service nav
+.npcnav_wp{
+    left:60%;
+    .list_obj .clipcon{ max-width: 120px;}
+}
+//576px
+@media screen and (max-height: variables.$breakpoint-mobile){
+.npcnav_wp{
+    bottom: 5%;
+}
+}// ./576px

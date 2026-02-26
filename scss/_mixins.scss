@@ -1,0 +1,242 @@
+@use "sass:color";
+@use "variables";
+//ul,li的 margin、padding、liststyle樣式none;
+@mixin ulnonstyle ($liststyle, $margin, $padding){
+    list-style: $liststyle;
+    margin: $margin;
+    padding: $padding;
+}
+
+//置中
+@mixin flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+@mixin position-align-center ($top, $left, $translate){
+    top: $top;
+    left: $left;
+    transform: $translate;
+}
+
+//最小icon尺寸
+@mixin minicon {
+    width: 44px;
+    height: 44px;
+}
+
+//主按鈕
+@mixin btn-primary {
+    display: inline-block;
+    color: variables.$white;
+    font-size: $font-size-20;
+    line-height: $line-height-25;
+    text-align: center;
+    margin: 60px 0;
+    padding: 0 30px;
+    border:0; 
+    border-radius: 40px;
+    background-color: variables.$primary; 
+}
+//全部覆蓋
+@mixin full_overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+}
+//quest編輯層
+@mixin quest_lvst {
+  position: relative;
+  z-index: variables.$lv_primary + 1;
+  max-width: 1200px;
+  width: 94%;
+}
+
+//表格
+@mixin td-set {
+    line-height: 1.4;
+    padding: 8px;
+}
+@mixin td-set-big {
+    line-height: 1.4;
+    padding: 16px 8px;
+}
+@mixin td-dataform {
+    line-height: 1.4;
+    padding: 8px 2px;
+}
+
+
+//animation
+@keyframes show {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+      transition: opacity 3s;
+    }
+}
+//animation up and down
+@keyframes updown {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+}
+
+//Floating Combat Text 傷害浮動特效
+@keyframes FlotCombatTxt {
+  0% {
+    opacity: 0;
+    margin-top: 20px;
+  }
+  30% {
+    opacity: 1;
+    margin-top: 0px;
+    font-size: variables.$font-body + .2rem;
+  }
+  70% {
+    opacity: 1;
+    margin-top: 0px;
+    font-size: variables.$font-body + .2rem;
+  }
+  100% {
+    opacity: 0;
+    margin-top: -20px;
+  }
+}
+@keyframes FlotCombatTxt_Crit {
+  0% {
+    opacity: 0;
+    margin-top: 20px;
+  }
+  30% {
+    opacity: 1;
+    margin-top: 0px;
+    font-size: variables.$font-body + .6rem;
+
+  }
+  70% {
+    opacity: 1;
+    margin-top: 0px;
+    font-size: variables.$font-body + .6rem;
+  }
+  100% {
+    opacity: 0;
+    margin-top: -20px;
+  }
+}
+
+//Fade-Out Glow 完成任務、任務獎勵強制拾取特效
+@keyframes FadOutGlow {
+  0% {
+    opacity: 0;
+    height: 33px;
+    padding: 8px;
+    transform: scaleY(1);
+    margin-top: 10px;
+  }
+  30% {
+    opacity: 1;
+    margin-top: 0px;
+  }
+  70% {
+    opacity: 1;
+    margin-top: 0px;
+    mix-blend-mode: unset;
+    filter: contrast(1);
+  }
+  80% {
+    mix-blend-mode: plus-lighter;
+    filter: contrast(0.5);
+  }
+  85% {
+    height: 33px;
+    padding: 8px;
+    mix-blend-mode: unset;
+    filter: contrast(1);
+  }
+  90% {
+    transform: scaleY(1);
+    margin-top: -10px;
+  }
+  100% {
+    opacity: 0;
+    height: 0;
+    padding: 0 8px;
+    transform: scaleY(0);
+  }
+}
+@keyframes FadOutGlowTxt {
+  0% {
+    background-position: -100% 0;
+  }
+  100% {
+    background-position: 250% 0;
+  }
+}
+@keyframes FadOutGlowQuest {
+  0% {
+    height: 29px;
+    margin-top: 0px;
+    padding: 4px 0;
+    opacity: 1;
+    mix-blend-mode: unset;
+    transform: scaleY(1);
+    filter: contrast(1);
+  }
+  50% {
+    mix-blend-mode: plus-lighter;
+    filter: contrast(0.5) drop-shadow(0px 0px 4px #ffffff) drop-shadow(0px 0px 2px #ffffff);
+  }
+  70% {
+    mix-blend-mode: plus-lighter;
+    filter: contrast(0.5) drop-shadow(0px 0px 4px #ffffff) ;
+    height: 29px;
+    margin-top: 0px;
+    padding: 4px 0;
+    opacity: 1;
+    transform: scaleY(1);
+  }
+  80% {
+    margin-top: -10px;
+    mix-blend-mode: unset;
+  }
+  100% {
+    opacity: 0;
+    height: 0;
+    padding: 0;
+    transform: scaleY(0);
+  }
+}
+
+@keyframes BgMove {
+  0% {
+    background-size: 100%;
+  }
+  50% {
+    background-size: 160%;
+  }
+  100% {
+    background-size: 100%;
+  }
+}
+//ice 漸層move
+@keyframes icemove {
+  0% {
+    background-position: 0 -100%; /* 漸層開始時，完全在容器左側外部 */
+  }
+  50% {
+    background-position: 0 50%; /* 漸層移動到容器中央 */
+  }
+  100% {
+    background-position: 0 100%; /* 漸層結束時，完全在容器右側外部 */
+  }
+}

@@ -1,0 +1,25 @@
+{
+    "liveServer.settings.donotVerifyTags": true,
+    "liveServer.settings.donotShowInfoMsg": true,
+    "liveSassCompile.settings.generateMap": true,
+    "liveSassCompile.settings.formats": [
+        {
+            "format": "expanded",
+            "extensionName": ".css",
+            "savePath": "/css"
+        }
+    ],
+    "liveSassCompile.settings.excludeList": [
+        "**/node_modules/**",
+        ".vscode/**"
+    ],
+    "liveSassCompile.settings.includeItems": [
+        "/**/scss/*.scss"
+    ],
+    "editor.hover.enabled": "off",
+    "bracketPairColorizer.depreciation-notice": false,
+    "security.workspace.trust.untrustedFiles": "open",
+    "json.schemas": [],
+    "editor.largeFileOptimizations": false,
+    "liveSassCompile.settings.autoprefix": []
+}

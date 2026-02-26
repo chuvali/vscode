@@ -1,0 +1,31 @@
+@use "sass:color";
+@use "variables";
+@use "mixins";
+//pagination
+.pagination{
+    z-index: variables.$lv_primary + 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    width: calc(100% - #{variables.$side_s * 2});
+    margin: 0 variables.$side_s;
+    .ico{
+        padding: 4px;
+        line-height: variables.$line-height-0;
+        border-radius: 60px;
+        background-color: variables.$black;
+        .ico_ss{filter: invert(1);}
+    }
+}
+.side_end{
+    display: flex;
+    gap: 1vw;
+    justify-content: flex-end;
+}
+
+
+//576px
+@media screen and (max-width: variables.$breakpoint-mobile){
+
+}// ./576px

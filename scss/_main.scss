@@ -1,0 +1,773 @@
+@use "sass:color";
+@use "variables";
+@use "mixins";
+//bootstrap
+.modal,
+.modal-content{
+    background: transparent;
+    &.show{
+        display: block;
+        opacity: 1;
+    }
+}
+.quantity-selector{
+    justify-content: flex-end;
+    margin-top: 24px;
+    padding: 0;
+    background-color: unset;
+    .btn-icon{
+        position: relative;
+        z-index: unset;
+        width: 44px;
+        height: 44px;
+        margin: 0 4px !important;
+        color: variables.$white;
+        &.add{
+            background: url(images/ico_plus_s.svg) no-repeat center;
+            background-size: 70%;
+        }
+        &.subtract{
+            background: url(images/ico_subtract_s.svg) no-repeat center;
+            background-size: 70%;
+        }
+        &.add:focus,
+        &.subtract:focus{
+            &:focus{
+            background-color: variables.$primary;
+            }
+        }
+    }
+    .form-control{
+        max-width: 80px;
+        height: 44px;
+        color: variables.$third;
+        font-size: variables.$font-second;
+        font-weight: bold;
+        text-align: center;
+        background-color: transparent;
+    }
+}
+.modal-header{
+    padding: 0;
+    border: 0;
+    .btn-close{
+        position: absolute;
+        top: -12px;
+        right: -12px;
+        z-index: 1;
+        opacity: 1;
+        padding: 12px;
+        background: #8367AF;
+        border-radius: 60px;
+        //filter: drop-shadow(0px 0px 6px rgba(variables.$black, 0.6));
+        &::before,
+        &::after{
+            top: 44%;
+            left: 22%;
+            height: 4px;
+            width: 60%;
+        }
+        &::before {
+            background-color: color.adjust(variables.$diya01, $lightness: 20%);
+        }
+    }
+}
+.modal-backdrop.show{opacity: .5;}
+.modal-content{
+    .modal-body{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 0;
+    border-radius: variables.$radius_m;
+    .img{
+        flex: 3;
+        padding: var(--bs-modal-padding);
+        background-color: variables.$white;
+        text-align: center;
+        img{
+            max-width: 100%;
+            max-height: 200px;
+            object-fit: contain;
+        }
+    }
+    .item_lv{
+        position: absolute;
+        top: 8px;
+        left: 8px;
+        display: flex;
+        .ico_ss{ width: 24px;}
+    }
+    .article{
+        flex: 7;
+        padding: variables.$gap_vwm - 2vw;
+        color: variables.$white;
+        //background-color: rgba(variables.$black, 0.4);
+        background-image: linear-gradient(180deg, rgba(0, 0, 0, .8) 0%, rgba(0, 0, 0, .6) 60%);
+    }
+    &.bagdes .article{
+        min-height: 30vh;
+    }
+}
+}
+.modal-dialog-scrollable .modal-content{
+    overflow: unset;
+    max-height: 95%;
+    margin: auto;
+    border-radius: 12px;
+    &.alert{
+        width: unset;
+        .article{
+            margin-bottom: 0;
+            padding: 16px 20px;
+            font-size: variables.$font-four - .2rem;
+            border: 1px solid rgba(variables.$white, 0.2);
+            border-radius: variables.$radius_m;
+            background: color.adjust(variables.$diya01, $saturation: -40%, $lightness: -55%);
+        }
+    }
+    &.w_m{
+        width: 80%;
+        border: 0;
+        filter: drop-shadow(0px 0px 12px rgba(variables.$black, 0.5));
+    }
+    &.w_x{
+        width: 91%;
+        border: 0;
+        filter: drop-shadow(0px 0px 12px rgba(variables.$black, 0.5));
+    }
+    &.wa_full{
+        max-height: 100%;
+        margin: 0;
+        padding: 0;
+        border: 0;
+        border-radius: 0;
+        background-image: linear-gradient(180deg, rgba(0, 0, 0, .8) 0%, rgba(0, 0, 0, .6) 60%);
+        filter: drop-shadow(0px 0px 12px rgba(variables.$black, 0.5));
+        &.bg_light{
+            background-image: linear-gradient(180deg, rgba(255, 255, 255, .95) 0%, rgba(255, 255, 255, .9) 60%);
+            .article{
+                color: variables.$black;
+            }
+        }
+        .modal-header .btn-close{
+            top: 2vw;
+            right: 2vw;
+        }
+        .modal-body{ margin: 8vw 10vw;}
+        .article{
+            padding: 0;
+            background-image: unset;
+        }
+    }
+}
+.modal-footer{
+    justify-content: center;
+    padding: 0;
+    border: 0;
+    .btn_primary_l{
+        min-width: 160px;
+        margin-top: -20px;
+    }
+}
+.modal-full{
+    max-width:unset;
+    height: 100%;
+    margin: 0;
+}
+
+//992px
+@media screen and (max-width: variables.$breakpoint-pad-lg) {
+    .modal-content .modal-body .article {
+        padding: 24px;
+        .title_primary{margin-bottom: 12px;}
+    }
+    .modal-dialog-scrollable {
+        .modal-content.w_m {
+            max-width: 85%;
+        }
+        .modal-content.w_x {
+            max-width: unset
+        }
+    }
+}// ./992px
+
+//麵包
+.pathcrumb {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    width: 100%;
+    margin-bottom: 0;
+    padding: 30px 7%;
+    color: variables.$gray-40;
+    font-size: variables.$font-body - 0.2rem;
+    line-height: 1.2;
+    text-align: right;
+    border-bottom: 1px solid variables.$gray-87;
+    > li {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        font-size: initial;
+        line-height: initial;
+        font-weight: initial;
+        &:last-child {
+            color: variables.$primary;
+        }
+        &:last-child::after {content: none; color: variables.$primary;}
+    }
+    > li a:link,
+    li a:visited {
+        text-decoration: none;
+        color: #055b21;
+        transition: all 0.5s ease 0s;
+    }
+    > li::after {
+        content: '>';
+        margin: 0 5px;
+    }
+}
+
+//main
+.sr-only{
+    display: inline-block;
+    text-indent: -9999em;
+}
+//浮動的選單absolute nav
+.absolut_nav{
+    position: absolute;
+    top: 40%;
+    z-index: variables.$lv_dialog + 1;
+}
+.loot_wp,
+.npcnav_wp{
+    .list_wp{
+        max-height: 150px;
+        overflow-y: auto;
+        padding-left: 4px;
+        .list_obj{
+            display: flex;
+            align-items: center;
+            min-width: 120px;
+            margin: 4px 0;
+            padding: 8px;
+            color: variables.$white;
+            font-size: variables.$font-note - .2rem;
+            border-radius: 60px;
+            border: 1px solid rgba(variables.$white, 30%);
+            background: linear-gradient(90deg, variables.$black 40%, rgba(variables.$black, 00%) 100%);
+            transition: .3s;
+            &:hover{
+                filter: brightness(130%) drop-shadow(0px 0px 4px variables.$white);
+            }
+            img{margin-right: 8px;}
+            .clipcon{
+                margin-right: 4px;
+                max-width: 72px;
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                line-height: 1;
+            }
+        }
+    }
+}
+/*   note,alert   */
+.note{
+    margin-top: 4px;
+    color: variables.$gray-60;
+    font-size: variables.$font-note;
+    line-height: variables.$line-height-sm;
+}
+.alert{ text-align: center;}
+.note.flex{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 8px;
+    margin-top: 12px;
+    text-align: right;
+    .txt{
+        opacity: 0;
+        color: variables.$gray-73;
+        transition: .3s;
+    }
+    .note_ico{
+        width: 40px;
+        height: 40px;
+        line-height: variables.$line-height-0;
+        border-radius: 60px;
+        background-color: rgba(variables.$black, 30%);
+    }
+    &.show{
+        .txt{
+            opacity: 1;
+        }
+    }
+}
+
+//覆蓋型 流星背景
+.bg_wp.filt_blur{
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: variables.$lv_primary;
+    backdrop-filter: blur(6px);
+}
+.bg_conten{
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: variables.$lv_primary - 3;
+    line-height: 0;
+    background: variables.$bgimg_star01;
+    background-size: cover;
+    background-color: linear-gradient(to bottom, variables.$diya01 0%, variables.$diya02 60%);
+    &::before{
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-color: #6758ff;
+        mix-blend-mode: difference;
+        filter: grayscale(.7) contrast(0.1);
+        mix-blend-mode: difference;
+        filter: grayscale(1);
+        //z-index: -1;
+        //深紫色用
+    }
+    &.light{
+        z-index: variables.$lv_primary;
+        &::before{
+            background-color: rgba(80, 77, 110, .3);
+            mix-blend-mode: unset;
+            filter: unset;
+            //總管理，背包
+        }
+    }
+    &.diyabg::before{
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-color: #908cc0;
+        mix-blend-mode: multiply;
+        filter: grayscale(1);
+    }
+    &.bagui{
+        z-index: variables.$lv_primary - 3;
+        &::before{
+            content: unset;
+            //background-color: #606794;
+            //mix-blend-mode: overlay;
+            //filter: saturate(0.3);
+            //比light深一點
+        }
+    }
+    &.bagui_bank{
+        z-index: variables.$lv_primary - 3;
+        &::before{
+            background-color: #011511;
+            mix-blend-mode: difference;
+            filter: hue-rotate(40deg);
+        }
+    }
+    &.bagui_store{
+        z-index: variables.$lv_primary - 3;
+        &::before{
+            background-color: #606794;
+            mix-blend-mode: saturation;
+            filter: saturate(0.7);
+        }
+    }
+    &.memberui{
+        z-index: variables.$lv_primary;
+        &::before{
+        //background-color: #6758ff;
+        //ackground-color: #a9a5da;
+        background-color: #908cc0;
+        mix-blend-mode: multiply;
+        filter: grayscale(1);
+        //灰紫色用，會員
+        }
+    }
+    &.guardianui{
+        z-index: variables.$lv_primary;
+        //opacity: .8;
+        opacity: .7;
+        &::before{
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background-color: #6a629b;
+            mix-blend-mode: overlay;
+            filter: contrast(0.1);
+        }
+    }
+    &.questui_front{
+        z-index: variables.$lv_primary - 3;
+        //filter: hue-rotate(350deg) contrast(2) brightness(0.5);
+        //filter: hue-rotate(353deg) saturate(1.7) brightness(0.8);
+        opacity: .8;
+        &::before{
+            background-image: linear-gradient(4deg, rgba(195, 173, 234, 1) 0%, rgba(135, 138, 217, 1) 100%);
+            //mix-blend-mode: overlay;
+            //filter: saturate(0.5);
+            background-image: linear-gradient(4deg, rgb(117, 165, 196) 0%, rgb(29 33 47) 90%);
+            background-image: linear-gradient(4deg, rgb(70, 105, 128) 0%, rgb(29 33 47) 90%);
+            mix-blend-mode: hard-light;
+            filter: unset;
+        }
+    }
+}
+.deco{
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: variables.$lv_primary - 3;
+    &.questui_front{
+        &::after{
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            //background: linear-gradient(180deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.2) 40%), url(images/decobg_flowerframe.png) no-repeat top center;
+            background: url(images/decobg_flowerframe.png) no-repeat top center;
+            background-size: clamp(300px, 40vw, 400px);
+        }
+    }
+}
+.bg_star{ width: 100%; height: 100%}
+
+
+//使用處:任務編輯
+.bg_conten02{
+    @include mixins.quest_lvst;
+    z-index: variables.$lv_primary - 2;
+    margin: 0px auto 0;
+    padding-top: 20px;
+    border-radius: 8px;
+    //background-image: linear-gradient(161deg, rgba(157, 167, 221, 0) 0%, rgba(157, 167, 221, .3) 80% ,rgba(157, 167, 221, .3) 85%, rgb(255, 205, 149, .6) 100%);
+    background-image: linear-gradient(161deg, rgba(157, 167, 221, 0) 0%, rgba(157, 167, 221, 0.3) 70%, rgb(157, 201, 221, .35) 80%, rgb(248, 246, 183, .6) 100%);
+}
+//使用處:login，小面積，顏色更濃
+.bg_conten03{
+    @include mixins.quest_lvst;
+    z-index: variables.$lv_primary - 1;
+    margin: 0px auto 0;
+    padding-top: 100px;
+    padding-bottom: 6vw;
+    border-radius: 8px;
+    background-image: linear-gradient(161deg, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.4)30%, rgba(0, 0, 0, 0.04)70%, rgba(79, 126, 147, 0.4) 80%, rgb(248, 246, 183, .5) 110%);
+}
+//使用處:member
+.bg_conten04{
+    @include mixins.quest_lvst;
+    z-index: variables.$lv_primary - 2;
+    margin: 0px auto 0;
+    padding-top: 6vw;
+    padding-bottom: 6vw;
+    border-radius: 12px;
+    background-image: linear-gradient(161deg, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.4)30%, rgba(0, 0, 0, 0.04)70%, rgba(79, 126, 147, 0.4) 80%, rgb(248, 246, 183, .5) 110%);
+    background-image: linear-gradient(161deg, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.6) 30%, rgba(0, 0, 0, 0.6) 70%, rgba(79, 126, 147, 0.6) 80%, rgba(248, 246, 183, 0.5) 110%);
+    background-image: linear-gradient(161deg, rgb(48 39 70 / 80%) 0%, rgb(48 39 70 / 80%) 30%, rgb(48 39 70 / 80%) 70%, rgba(79, 126, 147, 0.6) 80%, rgba(248, 246, 183, 0.5) 110%);
+    animation: BgMove 10s linear infinite;
+}
+.utilitybar{
+    position: fixed;
+    top: 0;
+    z-index: variables.$lv_primary - 1;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    padding-left: variables.$side_s;
+    //background-image: linear-gradient(173deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 60%);
+    //background-image: linear-gradient(173deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 40%), radial-gradient(circle at 2% -40px, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 60%);
+    &.close {
+        position: relative;
+        justify-content: flex-end;
+        background: transparent;
+    }
+    .btn{
+        display: flex;
+        gap: 4px;
+        padding: 8px 20px;
+    }
+    .btn-close{filter: variables.$shadowMid variables.$shadowDeep;}
+}
+.panel_top{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: -140px;
+    margin-bottom: 30px;
+    text-align: center;
+    .img_m{
+        max-width: 140px;
+        min-width: 96px;
+        width: 21vw;
+        filter: drop-shadow(0px 0px 20px rgba(variables.$black, 0.3));
+    }
+}
+//search
+.search{
+    form {
+        position: relative;
+        margin: 12px auto 0;
+    }
+    input {
+        position: relative;
+        outline: none;
+        width: 90px;
+        padding: 10px 20px 10px 16px;
+        color: variables.$white;
+        border-radius: 42px;
+        border: 0;
+        background: rgba(variables.$black, 0.25);
+        transition: .3s linear;
+        &:focus { 
+            width: 150px;
+        }
+    }
+    button {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 40px;
+        height: 40px;
+        background: none;
+        border: none;
+        &:before {
+            content: "";
+            position: inherit;
+            left: 8px;
+            top: 8px;
+            width: 24px;
+            height: 24px;
+            background-image: url(images/ico_search.svg);
+            background-size: 100%;
+        }
+    }
+}
+
+//goods
+.price{
+    margin-top: 8px;
+    .ico_ss{vertical-align: sub;margin-right: 2px;}
+}
+.items_wp{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 2%;
+    max-height: 80vh;
+    overflow-y: auto;
+    margin-top: 24px;
+    &.ice .list{
+        &::after{
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(
+                to top,
+                rgba(149, 251, 255, .6) 0%,
+                rgba(149, 251, 255, .6) 50%,
+                rgba(149, 251, 255, .6) 100%
+            );
+            background-image: url(images/ice_frost.png);
+            background-size: 100% 100%;
+            border-radius: 12px;
+            //mix-blend-mode: overlay;
+        }
+    }
+    .list{
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        width: calc(100% / 6 - 2%);
+        border-radius: 12px;
+        transition: .3s;
+        .img{
+            position: relative;
+            padding: 8px;
+            border-radius: 12px 12px 0 0;
+            background-color: variables.$white;
+            .item_lv{
+                position: absolute;
+                top: 4px;
+                left: 4px;
+                display: flex;
+            }
+            .stock{
+                position: absolute;
+                right: 8px;
+                bottom: 8px;
+                color: color.adjust(variables.$primary, $lightness: -3%);
+                line-height: variables.$line-height-default;
+            }
+        }
+        .article{
+            height: 100%;
+            padding: 8px 4px;
+            color: variables.$white;
+            text-align: center;
+            line-height: variables.$line-height-ss;
+            border-radius: 0 0 12px 12px;
+            background-color: rgb(63, 70, 99, .5);
+            span{
+                display: -webkit-box;
+                -webkit-box-orient: vertical;
+                -webkit-line-clamp: 2;
+                overflow: hidden;
+            }
+        }
+        .transfer{
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            z-index: 1;
+            display: none;
+            gap: 8px;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            padding: 0 12px;
+            color: variables.$white;
+            background-color: rgba(variables.$black, 70%);
+            border-radius: 12px;
+        }
+        &.current{
+            border: 1px solid variables.$cyan;
+            filter: drop-shadow(0px 0px 8px rgba(variables.$cyan, 0.7));
+            .transfer{
+                display: flex;
+            }
+        }
+    }
+}
+.bagui_player{
+    .transfer{
+        .transaction{
+            width: 100%;
+            padding: 8px 12px;
+            color: variables.$white;
+            border-radius: 60px;
+        }
+        .quantity-selector {
+            justify-content: center;
+            margin-top: 0;
+            height: 40px;
+            border: 1px solid rgba(variables.$white, 0.3);
+            border-radius: 60px;
+            background-color: rgba(variables.$black, 0.6);
+            .form-control{
+                font-size: variables.$font-body;
+            }
+        }
+    }
+    &.add{
+        .transfer{
+            .transaction{
+                background-color: color.adjust(variables.$third, $lightness: -10%);
+            }
+        }
+    }
+    &.remove{
+        .transfer{
+            .transaction{
+                background-color: color.adjust(variables.$diya, $lightness: 10%);
+            }
+        }
+    }
+}
+
+/*Global Links CSS*/
+@media print {
+
+}
+
+//1925px
+@media screen and (min-width: variables.$breakpoint-pc-exl) {
+
+}// ./1925px
+
+// 1680px
+@media screen and (max-width: 1680px) {
+
+}// ./1680px
+
+// 1440px
+@media screen and (max-width: variables.$breakpoint-pc-m) {
+
+}// ./1440px
+
+//1280px
+@media screen and (max-width: variables.$breakpoint-pc-s) {
+
+}// ./1280px
+
+//992px
+@media screen and (max-width: variables.$breakpoint-pad-lg) {
+
+}// ./992px
+
+//768px
+@media screen and (max-width: variables.$breakpoint-pad){
+
+//product 
+
+}// ./768px
+
+//576px
+@media screen and (max-width: variables.$breakpoint-mobile){
+.bg_conten02{ width: 100%;padding-top: 0;}
+.panel_top{margin-top: -80px;}
+//goods
+.items_wp{
+    max-height: 78vh;
+    .list{
+        width: calc(100% / 4 - 2%);
+        .article{ padding: 8px 4px;}
+    }
+}
+}// ./576px
+
+//576px 高度小於
+@media screen and (max-height: variables.$breakpoint-mobile){
+    .deco.questui_front::after{
+        background: transparent;
+        background-size: 280px;
+    }
+    
+}
+// ./576px 高度小於
+
+//390px
+@media screen and (max-width: 390px){
+    .items_wp {
+    max-height: 70vh;
+    
+}
+
+}
+// ./390px

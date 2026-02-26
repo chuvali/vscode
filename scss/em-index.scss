@@ -1,0 +1,26 @@
+// Configuration
+@use "variables";
+@use "mixins";
+
+// Layout & components
+@use "reboot";
+@use "loading";
+@use "main";
+@use "skill";
+@use "message";
+@use "system";
+@use "loot";
+@use "bag_store";
+@use "map";
+@use "otherlayout";
+@use "form";
+@use "inquiry";
+@use "pagination";
+@use "layout";
+@use "faq";
+@use "tab";
+@use "formcontrols";
+
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&family=Noto+Serif+TC&display=swap"); /*黑體*/
+@import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined");
+

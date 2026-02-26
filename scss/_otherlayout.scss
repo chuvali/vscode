@@ -1,0 +1,98 @@
+@use "sass:color";
+@use "variables";
+@use "mixins";
+//contact///
+.wrap.contactus_wp .row-2.shell{
+    align-items: stretch;
+    max-width: initial;
+    padding: 0;
+    
+    .col{
+        padding: 2vw 4vw;
+        &:first-child{ 
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            justify-content: center;
+            margin-top: -78px;
+            background: url(images/contact_bg.jpg) no-repeat top left;
+            background-size: cover;
+            h1{color: variables.$white;}
+            ul {
+                list-style: none;
+                padding: 0;
+                img{
+                    width: 32px;
+                    margin-right: 12px;
+                }
+            }
+            li {
+                display: flex;
+                align-items: flex-start;
+                list-style: none;
+                padding: 4px 0;
+                font-size: inherit;
+                line-height: inherit;
+                font-weight: inherit;
+            }
+        }
+        &:last-child{background-color: variables.$white;}
+
+        div input, 
+        div select,
+        textarea {
+            width: 100%;
+            display: flex;
+            border: 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.30);
+            background-color: transparent;
+            color: variables.$primary;
+            font-size: 100%;
+            padding: 12px 8px;
+        }
+    }
+    .con_rowA {
+        display: flex;
+        flex-wrap: wrap;
+        padding-bottom: 20px;
+        width: 100%;
+        > div:nth-child(1) {
+            width: 50%;
+            padding-right: 15px;
+        }
+        > div:nth-child(2) {
+            width: 50%;
+            padding-left: 15px;
+        }
+		.theme{
+			display: block;
+		}
+    }
+    .con_rowB{
+        display: flex;
+        flex-wrap: wrap;
+        padding-bottom: 50px;
+        width: 100%;
+
+        div{width: 100%;}
+    }
+    .btn.inquiry.con_rowC{
+        justify-content: center;
+        margin: 44px 0 0;
+    }
+}
+
+//992px
+@media screen and (max-width: variables.$breakpoint-pad-lg) {
+
+}
+
+//768px
+@media screen and (max-width: variables.$breakpoint-pad) {
+
+}// ./768px
+
+//576px
+@media screen and (max-width: variables.$breakpoint-mobile) {
+    
+}// ./576px

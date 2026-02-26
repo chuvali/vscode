@@ -1,0 +1,289 @@
+@use "sass:color";
+@use "variables";
+@use "mixins";
+// Base class
+header{
+    .col_r{
+        position: absolute;
+        right: variables.$side_s;
+        //z-index: 999;
+        text-align: right;
+    }
+    .tiamenu{
+        display: flex;
+        justify-content: flex-end;
+        position: relative;
+        right: 0;
+        z-index: variables.$lv_primary;
+        padding-top: 16px;
+        .badge{
+            top: 0;
+            right: 0px;
+        }
+    }
+    .btn_nav_main{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        width: 44px;
+        height: 44px;
+        text-align: center;
+        background-color: rgba(variables.$black, 60%);
+        border-radius: 60px;
+        &:hover img{ 
+            filter: brightness(130%);
+        }
+        img{ 
+            filter: brightness(100%);
+            max-width: unset;
+            width: 32px; 
+            height: 32px;
+        }
+    }
+    .notification{
+        position: relative;
+        top: 12px;
+        z-index: variables.$lv_primary;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+    }
+    .coat_wp{
+        display: flex;
+        align-items: flex-start;
+        z-index: variables.$lv_primary;
+        .btn{
+            width: 44px;
+            padding: 4px;
+            line-height: variables.$line-height-0;
+        }
+        .message_wp,
+        .quest_wp,
+        .map_wp{
+            .btn{
+                position: absolute;
+                top: 12px;
+                z-index: variables.$lv_primary;
+            }
+        }
+        .message_wp {
+            .btn{right: 150px;}
+            .btn_posture{
+                top: 40px;
+                opacity: 0;
+                transition: .3s;
+                &::after{
+                    content: "";
+                    position: absolute;
+                    left: 5%;
+                    top: 5%;
+                    z-index: -1;
+                    width: 90%;
+                    height: 90%;
+                    background-color: rgba(variables.$black, 25%);
+                    border-radius: 100px;
+                }
+                &.show{
+                    top: 60px;
+                    opacity: 1;
+                    transition: .3s;
+                    border: 0;
+                }
+            }
+        }
+        .quest_wp .btn{right: 100px;}
+        .map_wp .btn{right: 60px;}
+    }
+}
+
+.badge,
+.btn .badge{
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    z-index: 1;
+    width: 8px;
+    height: 8px;
+    border-radius: 60px;
+    background-color: variables.$red;
+}
+//massage
+header .message_wp{
+    .btn_message{
+        position: relative;
+        right: 0;
+        .badge{
+            display: none;
+            background-color: variables.$secondary;
+        }
+        &.notif .badge{
+            display: block;
+        }
+        &.notif img{ filter: drop-shadow(0px 0px 6px variables.$secondary) drop-shadow(0px 0px 2px variables.$secondary);}
+     }
+}
+
+
+//hud人頭區域
+header {
+    .col_l{
+        position: absolute;
+        top: 20px;
+        left: variables.$side_s;
+        z-index: variables.$lv_primary - 399;
+    }
+    .hud_wp{
+        width: 120px;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        gap: 8px;
+        padding-left: 20px;
+        filter: drop-shadow(0px 0px 4px variables.$black);
+        &.danger{
+            filter: sepia(1) hue-rotate(320deg) drop-shadow(0px 0px 8px #FF2424) drop-shadow(0px 0px 2px #FF2424);
+        }
+        //人頭
+        .portrait{
+            position: absolute;
+            top: -8px;
+            left: 0;
+            width: 44px;
+            height: 44px;
+            filter: drop-shadow(4px 0px 4px variables.$black);
+            .combat_text{
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                opacity: 0;
+                font-size: variables.$font-body;
+                font-weight: bold;
+                //text-shadow:1px 1px 2px variables.$black, -1px -1px 2px variables.$black, 1px -1px 2px variables.$black, -1px 1px 2px variables.$black, 1px 1px 2px variables.$black;
+                filter: drop-shadow(0px 0px 1px black) drop-shadow(0px 0px 1px black) drop-shadow(0px 0px 1px black);
+            }
+            .dmgtaken{
+                color: variables.$white;
+                -webkit-text-stroke: 1px variables.$white;
+                animation: FlotCombatTxt 1s linear;
+            }
+            .dmgtaken_crit{
+                color: variables.$yellow_light;
+                -webkit-text-stroke: 1px variables.$yellow_light;
+                animation: FlotCombatTxt_Crit 1s linear;
+            }
+            .protection{
+                color: color.adjust(variables.$diya, $hue: 0deg, $saturation: -0%, $lightness: 30%);
+                -webkit-text-stroke: 1px color.adjust(variables.$diya, $hue: 0deg, $saturation: -0%, $lightness: 30%);
+                animation: FlotCombatTxt_Crit 1s linear;
+            }
+            .hpregen{
+                color: color.adjust(variables.$green, $hue: -40deg, $saturation: -20%, $lightness: 30%);
+                -webkit-text-stroke: 1px color.adjust(variables.$green, $hue: -40deg, $saturation: -20%, $lightness: 30%);
+                animation: FlotCombatTxt_Crit 1s linear;
+            }
+        }
+        .hpbar{
+            width: 100%;
+            background-color: rgba(variables.$black, 60%);
+            border: 1px solid variables.$secondary;
+            border-radius: 40px;
+            .current{
+                display: block;
+                width: 70%;
+                height: 6px;
+                background-color: rgba(variables.$secondary, 100%);
+                border-radius: 40px;
+            }
+        }
+        .spbar{
+            width: 100%;
+            background-color: rgba(variables.$black, 60%);
+            border-radius: 40px;
+            .current{
+                display: block;
+                width: 40%;
+                height:4px;
+                background: linear-gradient(to right,  #e35f00 0%,#fff849 100%);
+                border-radius: 40px;
+            }
+        }
+        .buff_wp{
+            overflow: hidden;
+            height: 20px;
+            padding-left: 18px;
+            line-height: variables.$line-height-0;
+            .list{ 
+                display: flex; 
+                &::-webkit-scrollbar {
+                    //height: 10px;
+                }
+            }
+            img{ max-width: unset; width: 18px;}
+        }
+    }
+
+    .buff_wp {
+        width: 100%;
+        overflow: hidden;
+      }
+}
+
+/*Global Links CSS*/
+@media print {
+
+}
+
+//992px   M版斷點
+@media screen and (max-width: variables.$breakpoint-nav) {
+}
+
+//460px
+@media screen and (max-width: variables.$breakpoint-mobile){
+    header{
+        .coat_wp{
+            flex-direction: column;
+            gap: 12px;
+            position: absolute;
+            top: unset;
+            right: -8px;
+            z-index: variables.$lv_primary - 299;
+            .quest_wp,
+            .map_wp{
+                .btn{
+                    position: unset;
+                    top: unset;
+                }
+            }
+            .message_wp {
+                .btn{ 
+                    position: relative; 
+                    top: unset;
+                    right: unset;
+                }
+                .btn_posture {
+                    position: absolute;
+                    top: 12px;
+                    right: 30px;
+                    &.show{
+                        top: 12px;
+                        right: 40px;
+                    }
+                }
+            }
+        }
+        .message_wp {
+            margin-top: 16px;
+        }
+        .message_wp,
+        .quest_wp, 
+        .map_wp{ position: unset;}
+        .tiamenu {
+            
+        }
+    }
+
+}// ./460px
+
+

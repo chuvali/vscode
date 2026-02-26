@@ -1,0 +1,107 @@
+@use "sass:color";
+@use "variables";
+@use "mixins";
+/*   layout   */
+.lay_h_1{
+    position: relative;
+    margin-top: 60px;
+    margin-bottom: 20px;   
+    color: variables.$primary; 
+    font-size: variables.$font-primary + .4rem;
+    font-weight: bold;
+    &::before{
+        content: "";
+        position: absolute;
+        left: 0;
+        top: -12px;
+        width: 64px;
+        border-top: 2px solid variables.$primary;
+    }
+}
+.lay_h_2{
+    position: relative;
+    margin-top: 32px;
+    padding-left: 24px;
+    color: variables.$primary; 
+    font-size: variables.$font-second;
+    font-weight: bold;
+    &::before{
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 4px;
+        width: 2px;
+        height: 24px;
+        border-left: 2px solid variables.$primary;
+    }
+}
+.lay_h_3{
+    margin-top: 32px;
+    color: variables.$primary; 
+    font-size: variables.$font-second - .2rem;
+    font-weight: bold;
+}
+.lay_h_4{
+    margin-top: 12px;
+    color: variables.$primary; 
+    font-size: variables.$font-second - .4rem;
+    font-weight: bold;
+}
+.listy_01{
+    padding: 20px 20px 20px 50px;
+    background-color: rgba(variables.$primary,8%);
+}
+
+.layout_blackbg{
+    .col{margin-bottom: 24px;}
+    .card{
+        height: 100%;
+        background-color: rgba(variables.$primary,8%);
+        border-bottom: 1px solid variables.$primary;
+    }
+}
+.layout_lr{ 
+    align-items: stretch;
+    .col{
+        flex: 50%;
+        padding: 0;
+        max-width: unset;
+    }
+    .col:first-child{padding: 4%;}
+}
+.ver_center{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.mark_applic_warp{
+    position: relative;
+    .swiper-button-prev, 
+    .swiper-container-rtl .swiper-button-next{ left: -12px;}
+    .swiper-button-next, 
+    .swiper-container-rtl .swiper-button-prev{right: -12px;}
+}
+
+/*Global Links CSS*/
+
+//1925px
+@media screen and (min-width: variables.$breakpoint-pc-exl) {
+
+}// ./1925px
+
+//1440px
+@media screen and (max-width: variables.$breakpoint-pc-m) {
+
+}// ./1440px
+
+//767px
+@media screen and (max-width: variables.$breakpoint-pad) {
+    .layout_lr{
+        flex-direction: column;
+    }
+}// ./767px
+
+//640px
+@media screen and (max-width: variables.$breakpoint-mobile){
+    
+}// ./640px

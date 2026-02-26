@@ -1,0 +1,23 @@
+@use "sass:color";
+@use "variables";
+@use "mixins";
+/*   ad   */
+
+
+//1680px
+@media screen and (max-width: 1680px) {
+}// ./1680px
+
+//1440px
+@media screen and (max-width: variables.$breakpoint-pc-m) {
+}// ./1440px
+
+//992px
+@media screen and (max-width: variables.$breakpoint-pad-lg) {
+
+}//./992px
+
+//460px
+@media screen and (max-width: variables.$breakpoint-mobile-s) {
+
+}//./460px

@@ -1,0 +1,42 @@
+@use "sass:color";
+@use "variables";
+@use "mixins";
+//message
+.toast{
+    width: unset;
+    padding: 8px 12px;
+    font-size: inherit;
+    line-height: variables.$line-height-default;
+    background-color: variables.$white;
+    border-radius: 60px;
+    transform: scale(0.8);
+    transform-origin: right;
+    opacity: .6;
+    .txt{
+        overflow:hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        text-shadow: none;
+    }
+    &.current{
+        transform: scale(1);
+        opacity: 1;
+    }
+    .strong{
+        color: color.adjust(variables.$warning, $lightness: -10%);
+    }
+    &.angle{
+        position: relative;
+    }
+    &.angle::after{
+        content: "";
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        background: url(images/ico_notification_angle.svg) no-repeat;
+    }
+    &.angle.topr::after{
+        top: -12px;
+        right: 0;
+    }
+}
