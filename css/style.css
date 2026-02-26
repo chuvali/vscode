@@ -1,0 +1,89 @@
+/* 共用樣式 */
+body {
+    font-family: "Microsoft JhengHei", Arial, sans-serif;
+    background-color: #f5f5f0;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+.container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+}
+header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+nav a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: #555;
+}
+nav a:hover {
+    color: #000;
+}
+h1, h2 {
+    font-family: "Noto Serif TC", serif;
+}
+
+/* 公司簡介專屬 */
+.profile {
+    display: flex;
+    align-items: center;
+}
+.profile img {
+    width: 250px;
+    height: auto;
+    border-radius: 4px;
+    margin-right: 20px;
+}
+.profile div {
+    flex: 1;
+}
+
+/* 商品頁專屬 */
+.products {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+}
+.product {
+    background: #fff;
+    padding: 20px;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+.product h3 {
+    margin-top: 0;
+}
+
+/* 聯絡頁專屬 */
+.container.contact {
+    max-width: 600px;
+}
+form {
+    display: flex;
+    flex-direction: column;
+}
+label {
+    margin-top: 10px;
+}
+input,
+textarea {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+button {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #666;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+button:hover {
+    background-color: #555;
+}
